@@ -1,0 +1,27 @@
+#include <stdio.h>
+//5、编写代码在一个整形有序数组中查找具体的某个数	要求：找到了就打印数字所在的下标，找不到则输出：找不到。
+int main()
+{
+	int arr[] = { 10,9,8,7,6,5,4,3,2,1 };
+	int left = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int right = sz - 1;
+	int i = 0;
+	int k = 11;
+	while (left<=right)
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] == k)
+		{
+			printf("找到了，数组下标是%d\n",mid);
+			break;
+		}
+		else if (arr[mid] > k)
+			left = mid + 1;
+		else
+		    right = mid - 1;
+	}
+	if (left > right)
+		printf("找不到\n");
+	return 0;
+}
