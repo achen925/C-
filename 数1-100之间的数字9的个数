@@ -1,0 +1,16 @@
+//4. 编写程序数一下 1到 100 的所有整数中出现多少个数字9
+int main()
+{
+	int n = 0;
+	int count = 0;
+	for (n = 1; n<= 100; n++)
+	{ 
+		if (n % 10 == 9)        //判断个位有9的情况
+			count++;
+		if (n / 10 == 9)        //判断十位有9的情况
+			count++;
+
+	}
+	printf("count=%d\n", count);
+	return 0;
+}
