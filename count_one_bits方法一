@@ -1,0 +1,20 @@
+int  count_one_bits(unsigned int value)
+{
+    int count=0;
+    while(n)
+    {
+        if(n%2==1)
+        {
+            count++;
+        }
+        n=n/2;
+    }
+}
+int main()
+{
+    int a=0;
+    scanf("%d",&a);
+    int count=count_one_bits(a);
+    printf("%d\n",count);
+    return 0;
+}
