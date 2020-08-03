@@ -1,0 +1,11 @@
+//方法三
+int  count_one_bits(unsigned int value)
+{
+	int count = 0;
+    while(n)
+    {
+        n=n&(n-1);
+        count++;
+    }
+    return count;
+}
