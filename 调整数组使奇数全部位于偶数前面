@@ -1,0 +1,39 @@
+//调整数组使奇数全部都位于偶数前面。
+//题目：输入一个整数数组，实现一个函数，
+//来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
+//所有偶数位于数组的后半部分。
+int fun(int str[], int sz)
+{
+	int left = 0;
+	int right = sz - 1;
+	while (left < right)
+	{
+		if (str[left] % 2 != 0)   
+			//如果左边的是奇数，指针++，判断后一个
+		{
+			left++;
+		}
+		if (str[right] % 2 != 1) 
+			//如果右边是偶数，指针--，判断前一个
+		{
+			right--;
+		}
+		//左边是偶数，右边是奇数的情况实现数组元素交换
+		int tmp =str[left];
+		str[left] = str[right];
+		str[right] = tmp;
+	}
+}
+
+int main()
+{
+	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i = 0;
+	fun(arr, sz);
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
