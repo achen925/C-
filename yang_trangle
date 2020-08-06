@@ -1,0 +1,42 @@
+//杨辉三角
+//   1
+//  1 1
+// 1 2 1
+//1 3 3 1
+void yang_trangle()
+{
+	int arr[5][5] = { 0 };
+
+	for (int i = 0; i < 5; ++i)
+	{
+		for (int j = 0; j <= i; ++j)
+		{
+			//第一列输出1
+			if (j == 0)
+			{
+				arr[i][j] = 1;
+				printf("%d ",arr[i][j]);
+			}
+			//最后一列输出1
+			else if (j==i)
+			{
+				arr[i][j] = 1;
+				printf("%d ", arr[i][j]);
+			}
+			//中间的 arr[i][j] = arr[i-1][j-1]+arr[i-1][j]
+			else
+			{
+				arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+				printf(("%d "), arr[i][j]);
+			}
+		}
+		printf("\n");
+	}
+
+
+}
+int main()
+{
+	yang_trangle();
+	return 0;
+}
