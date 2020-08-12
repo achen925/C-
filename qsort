@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Stu
+{
+	char name[10];
+	int age;
+
+};
+int cmp_int(const void* e1, const void* e2)
+{
+	return *(int*)e1 - *(int*)e2;
+}
+
+int cmp_float(const void* e1, const void* e2)
+{
+	return *(float*)e1 - *(float*)e2;
+}
+
+int cmp_stu_by_age(const void* e1, const void* e2)
+{
+	return ((struct Stu*) e1)->age - ((struct Stu*) e2)->age;
+}
+
+int main()
+{
+	int arr1[] = { 9, 8, 7, 6, 5 };
+	float arr2[] = { 9.0, 8.0, 7.0, 6.0, 5.0 };
+	struct Stu s[3] = { { "zhangsan", 20 }, { "lisi", 30 }, { "wangwu", 10 } };
+	int sz1 = sizeof(arr1) / sizeof(arr1[0]);
+	int sz2 = sizeof(arr2) / sizeof(arr2[0]);
+	int sz3 = 3;
+	int i = 0;
+	int j = 0;
+	qsort(arr1, sz1, sizeof(arr1[0]), cmp_int);
+	for (i = 0; i < sz1; i++)
+	{
+		printf("%d ", arr1[i]);
+	}
+	qsort(arr2, sz2, sizeof(arr2[0]), cmp_float);
+	for (j = 0; j < sz2; j++)
+	{
+		printf("%f ", arr2[j]);
+	}
+	qsort(s, sz3, sizeof(s[0]), cmp_stu_by_age);
+	for (j = 0; j < sz3; j++)
+	{
+		printf("%d ", s[j].age);
+	}
+	return 0;
+}
