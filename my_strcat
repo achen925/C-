@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<assert.h>
+char* my_strcat(char* dest, const char* src)
+{
+	assert(dest&&src);
+	int len = my_strlen(dest);
+	char* ret = dest;
+	while (*dest != 0)
+	{
+		dest++;
+	}
+	while (*src != 0)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+}
+int main()
+{
+	char arr1[30] = "hel";
+	char arr2[] = "wor";
+	my_strcat(arr1, arr2);
+	printf("%s\n", arr1);
+	return 0;
+}
