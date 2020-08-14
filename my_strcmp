@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<assert.h>
+int my_strcmp(const char* str1, const char* str2)
+{
+	assert(str1&&str2);
+	//保证指针的有效性
+	while (*str1 == *str2)
+	{
+		str1++;
+		str2++;
+	}
+	return *str1 - *str2;
+}
+
+int main()
+{
+	char arr1[] = "hfcderf";
+	char arr2[] = "hello";
+	int ret=my_strcmp(arr1, arr2);
+	if (ret > 0)
+	{
+		printf("字符串1>字符串2\n");
+	}
+	else if (ret < 0)
+	{
+		printf("字符串1<字符串2\n");
+	}
+	else
+	{
+		printf("字符串1=字符串2\n");
+	}
+	return 0;
+}
