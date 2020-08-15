@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <assert.h>
+
+void* my_memcpy(void* dest, void* src, size_t num)
+{
+	assert(dest != NULL);
+	assert(src != NULL);
+	char* ret = (char*)dest;
+	while (num!=0)
+	{
+		*(char*)dest = *(char*)src;
+		++(char*)dest;
+		++(char*)src;
+		num--;
+	}
+	return ret;
+}
+int main()
+{
+	int arr1[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int arr2[5] = { 0 };
+	printf("%d\n", *(int*)my_memcpy(arr2, arr1, 20));
+	return 0;
+}
