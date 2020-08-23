@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+void left_move(char* arr, int k)
+{
+	assert(arr != NULL);
+	int len = strlen(arr);
+	int i = 0;
+	for (i = 0; i < k; i++)
+	{
+		//旋转一次
+		char tmp = *arr;
+		int j = 0;
+		for (j = 0; j < len - 1; j++)
+		{
+			*(arr+j) = *(arr+j + 1);
+		}
+		*(arr+len - 1)= tmp;
+	}
+}
+int main()
+{
+	char arr[] = "abcd";
+	int k = 2;
+    left_move(arr, k);
+	printf("%s\n", arr);
+	return 0;
+}
