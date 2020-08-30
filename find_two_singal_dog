@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main()
+{
+	int arr[] = { 1, 2, 3, 4, 1, 2, 3, 4, 6 ,7};
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i = 0; 
+	int ret = 0;    //记录整个数组异或的结果
+	int pos = 0;    //记录整个数组异或结果中最右边的一个1
+	int x = 0;    //存放第一个找到的单身狗
+	int y = 0;    //存放第二个找到的单身狗
+	//数组所有元素进行异或
+	for (i = 0; i < sz; i++)
+	{
+		ret = ret^arr[i];
+	}
+	//找到最右边的1
+	for (i = 0; i < 32; i++)
+	{
+		if (((ret >> i) & 1) == 1)
+		{
+			pos = i;
+			break;
+		}
+	}
+	for (i = 0; i < sz; i++)
+	{
+		if (((arr[i] >> pos) & 1) == 1)
+		{
+			x ^= arr[i];
+		}
+		else
+		{
+			y ^= arr[i];
+		}
+	}	
+	//
+	printf("%d,%d", x, y);
+	return 0;
+}
